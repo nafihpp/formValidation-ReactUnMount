@@ -26,8 +26,8 @@ export const SecondForm = () => {
                 [e.target.name + "Error"]: `Fill the ${e.target.name}`,
             });
         }
-        if (e.target.name == "email") {
-            if (isValidEmail(e.target.value)) {
+        if (e.target.name == "email" && e.target.value !== "") {
+            if (e.target.value.includes("@") && e.target.value.includes(".")) {
                 setError({
                     ...error,
                     [e.target.name + "Error"]: "",
@@ -46,14 +46,11 @@ export const SecondForm = () => {
         });
     };
 
-    console.log(error);
-
     const fetchApi = (e) => {
         e.preventDefault();
         console.log("submit happend for the second Form");
     };
 
-    console.log(formDetails, "==secondForm+OnChange");
     return (
         <Fragment>
             <div className="firstForm">
@@ -107,7 +104,7 @@ export const SecondForm = () => {
                             name="gender"
                             value="femail"
                             onChange={updateForm}
-                            checked
+                            defaultChecked
                         />
                         <label htmlFor="">Female</label>
                         {error.genderError && (

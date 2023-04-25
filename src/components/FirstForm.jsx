@@ -8,18 +8,13 @@ export const FirstForm = () => {
         dob: "",
         country: "",
     });
-
     const [error, setError] = useState({
-        nameError: "",
+        firstNameError: "",
         emailError: "",
         genderError: "",
         dobError: "",
         countryError: "",
     });
-
-    function isValidEmail(email) {
-        return /\S+@\S+\.\S+/.test(email);
-    }
 
     const fetchApi = (e) => {
         e.preventDefault();
@@ -34,7 +29,7 @@ export const FirstForm = () => {
             });
         }
         if (e.target.name == "email" && e.target.value !== "") {
-            if (isValidEmail(e.target.value)) {
+            if (e.target.value.includes("@") && e.target.value.includes(".")) {
                 setError({
                     ...error,
                     [e.target.name + "Error"]: "",
@@ -52,7 +47,6 @@ export const FirstForm = () => {
             [e.target.name]: e.target.value,
         });
     };
-    console.log(formDetails, "firstForm+onBlur");
     return (
         <Fragment>
             <div className="firstForm">
@@ -98,7 +92,7 @@ export const FirstForm = () => {
                             type="radio"
                             name="gender"
                             value="male"
-                            checked
+                            defaultChecked
                             onBlur={updateForm}
                         />
                         <label htmlFor="">Male</label>

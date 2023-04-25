@@ -5,7 +5,6 @@ import "./App.css";
 import Title from "./components/Title";
 import { FirstForm } from "./components/FirstForm";
 import { SecondForm } from "./components/SecondForm";
-import { ThirdForm } from "./components/ThirdForm";
 
 function App() {
     const userName = "Nafih Puthen";
@@ -24,7 +23,6 @@ function App() {
             <div className="formsContainer">
                 <FirstForm />
                 <SecondForm />
-                <ThirdForm />
             </div>
         </Fragment>
     );
