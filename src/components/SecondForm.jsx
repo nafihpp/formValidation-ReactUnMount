@@ -22,6 +22,11 @@ export const SecondForm = () => {
                 ...error,
                 [e.target.name + "Error"]: `Fill the ${e.target.name}`,
             });
+        } else {
+            setError({
+                ...error,
+                [e.target.name + "Error"]: "",
+            });
         }
         if (e.target.name == "email" && e.target.value !== "") {
             if (e.target.value.includes("@") && e.target.value.includes(".")) {

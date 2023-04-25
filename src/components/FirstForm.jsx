@@ -46,7 +46,6 @@ export const FirstForm = () => {
                 });
             }
         }
-
         setFormDetails({
             ...formDetails,
             [e.target.name]: e.target.value,
