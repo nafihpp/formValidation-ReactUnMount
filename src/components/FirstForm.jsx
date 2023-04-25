@@ -27,6 +27,11 @@ export const FirstForm = () => {
                 ...error,
                 [e.target.name + "Error"]: `Fill the ${e.target.name}`,
             });
+        } else {
+            setError({
+                ...error,
+                [e.target.name + "Error"]: "",
+            });
         }
         if (e.target.name == "email" && e.target.value !== "") {
             if (e.target.value.includes("@") && e.target.value.includes(".")) {
@@ -65,11 +70,12 @@ export const FirstForm = () => {
                             className="inputSize"
                             onBlur={updateForm}
                         />
-                        {error.firstNameError && (
-                            <span style={{ color: "red" }}>
-                                <p>{error.firstNameError}</p>
-                            </span>
-                        )}
+                        {error.firstNameError &&
+                            error.firstNameError !== "" && (
+                                <span style={{ color: "red" }}>
+                                    <p>{error.firstNameError}</p>
+                                </span>
+                            )}
                     </div>
                     <div className="formSingleContainer">
                         <label htmlFor="">Email</label>
@@ -80,7 +86,7 @@ export const FirstForm = () => {
                             className="inputSize"
                             onBlur={updateForm}
                         />
-                        {error.emailError && (
+                        {error.emailError && error.emailError !== "" && (
                             <span style={{ color: "red" }}>
                                 <p>{error.emailError}</p>
                             </span>
@@ -103,7 +109,7 @@ export const FirstForm = () => {
                             onBlur={updateForm}
                         />
                         <label htmlFor="">Female</label>
-                        {error.genderError && (
+                        {error.genderError && error.genderError !== "" && (
                             <span style={{ color: "red" }}>
                                 <p>{error.genderError}</p>
                             </span>
@@ -121,7 +127,7 @@ export const FirstForm = () => {
                             <option value="Qatar">Qatar</option>
                             <option value="Oman">Oman</option>
                         </select>
-                        {error.countryError && (
+                        {error.countryError && error.countryError !== "" && (
                             <span style={{ color: "red" }}>
                                 <p>{error.countryError}</p>
                             </span>
@@ -135,7 +141,7 @@ export const FirstForm = () => {
                             onBlur={updateForm}
                             className="inputSize"
                         />
-                        {error.dobError && (
+                        {error.dobError && error.dobError !== "" && (
                             <span style={{ color: "red" }}>
                                 <p>{error.dobError}</p>
                             </span>
