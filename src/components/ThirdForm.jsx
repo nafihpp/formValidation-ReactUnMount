@@ -15,9 +15,18 @@ export const ThirdForm = () => {
         country: "",
     });
 
+    const [error, setError] = useState({
+        firstNameError: "",
+        emailError: "",
+        genderError: "",
+        dobError: "",
+        countryError: "",
+    });
+
     const fetchApi = (e) => {
         e.preventDefault();
         console.log("submit happend for the Third Form");
+
         setFormDetails({
             firstName: nameRef.current.value,
             email: emailRef.current.value,
@@ -47,6 +56,9 @@ export const ThirdForm = () => {
                             className="inputSize"
                             ref={nameRef}
                         />
+                        <span style={{ color: "red" }}>
+                            <p>Error</p>
+                        </span>
                     </div>
                     <div className="formSingleContainer">
                         <label htmlFor="">Email</label>
@@ -57,6 +69,9 @@ export const ThirdForm = () => {
                             className="inputSize"
                             ref={emailRef}
                         />
+                        <span style={{ color: "red" }}>
+                            <p>Error</p>
+                        </span>
                     </div>
                     <div className="formSingleContainer">
                         <label htmlFor="">Gender:</label>
@@ -66,6 +81,7 @@ export const ThirdForm = () => {
                             value="male"
                             ref={genderRef}
                         />
+
                         <label htmlFor="">Male</label>
                         <input
                             type="radio"
@@ -75,6 +91,9 @@ export const ThirdForm = () => {
                             checked
                         />
                         <label htmlFor="">Female</label>
+                        <span style={{ color: "red" }}>
+                            <p>Error</p>
+                        </span>
                     </div>
                     <div className="formSingleContainer">
                         <label htmlFor="">Country</label>
@@ -88,6 +107,9 @@ export const ThirdForm = () => {
                             <option value="Qatar">Qatar</option>
                             <option value="Oman">Oman</option>
                         </select>
+                        <span style={{ color: "red" }}>
+                            <p>Error</p>
+                        </span>
                     </div>
                     <div className="formSingleContainer">
                         <label htmlFor="">Date of Birth</label>
@@ -97,6 +119,9 @@ export const ThirdForm = () => {
                             className="inputSize"
                             ref={dobRef}
                         />
+                        <span style={{ color: "red" }}>
+                            <p>Error</p>
+                        </span>
                     </div>
                     <div className="button-Container">
                         <button type="submit">Submit</button>

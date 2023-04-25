@@ -8,16 +8,45 @@ export const SecondForm = () => {
         dob: "",
         country: "",
     });
+    const [error, setError] = useState({
+        firstNameError: "",
+        emailError: "",
+        genderError: "",
+        dobError: "",
+        countryError: "",
+    });
+    function isValidEmail(email) {
+        return /\S+@\S+\.\S+/.test(email);
+    }
 
     const updateForm = (e) => {
         if (e.target.value == "") {
-            console.log("value can't be empty");
+            setError({
+                ...error,
+                [e.target.name + "Error"]: `Fill the ${e.target.name}`,
+            });
         }
+        if (e.target.name == "email") {
+            if (isValidEmail(e.target.value)) {
+                setError({
+                    ...error,
+                    [e.target.name + "Error"]: "",
+                });
+            } else {
+                setError({
+                    ...error,
+                    [e.target.name + "Error"]: `${e.target.name} not valid`,
+                });
+            }
+        }
+
         setFormDetails({
             ...formDetails,
             [e.target.name]: e.target.value,
         });
     };
+
+    console.log(error);
 
     const fetchApi = (e) => {
         e.preventDefault();
@@ -43,9 +72,11 @@ export const SecondForm = () => {
                             className="inputSize"
                             onChange={updateForm}
                         />
-                        <span style={{ color: "red" }}>
-                            <p>Error</p>
-                        </span>
+                        {error.firstNameError && (
+                            <span style={{ color: "red" }}>
+                                <p>{error.firstNameError}</p>
+                            </span>
+                        )}
                     </div>
                     <div className="formSingleContainer">
                         <label htmlFor="">Email</label>
@@ -56,9 +87,11 @@ export const SecondForm = () => {
                             className="inputSize"
                             onChange={updateForm}
                         />
-                        <span style={{ color: "red" }}>
-                            <p>Error</p>
-                        </span>
+                        {error.emailError && (
+                            <span style={{ color: "red" }}>
+                                <p>{error.emailError}</p>
+                            </span>
+                        )}
                     </div>
                     <div className="formSingleContainer">
                         <label htmlFor="">Gender:</label>
@@ -74,11 +107,14 @@ export const SecondForm = () => {
                             name="gender"
                             value="femail"
                             onChange={updateForm}
+                            checked
                         />
                         <label htmlFor="">Female</label>
-                        <span style={{ color: "red" }}>
-                            <p>Error</p>
-                        </span>
+                        {error.genderError && (
+                            <span style={{ color: "red" }}>
+                                <p>{error.genderError}</p>
+                            </span>
+                        )}
                     </div>
                     <div className="formSingleContainer">
                         <label htmlFor="">Country</label>
@@ -92,9 +128,11 @@ export const SecondForm = () => {
                             <option value="Qatar">Qatar</option>
                             <option value="Oman">Oman</option>
                         </select>
-                        <span style={{ color: "red" }}>
-                            <p>Error</p>
-                        </span>
+                        {error.countryError && (
+                            <span style={{ color: "red" }}>
+                                <p>{error.countryError}</p>
+                            </span>
+                        )}
                     </div>
                     <div className="formSingleContainer">
                         <label htmlFor="">Date of Birth</label>
@@ -104,9 +142,11 @@ export const SecondForm = () => {
                             onChange={updateForm}
                             className="inputSize"
                         />
-                        <span style={{ color: "red" }}>
-                            <p>Error</p>
-                        </span>
+                        {error.dobError && (
+                            <span style={{ color: "red" }}>
+                                <p>{error.dobError}</p>
+                            </span>
+                        )}
                     </div>
                     <div className="button-Container">
                         <button type="submit">Submit</button>
