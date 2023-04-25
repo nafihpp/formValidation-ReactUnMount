@@ -1,0 +1,37 @@
+.toggle-button {
+    margin: 50px 0 30px 50px;
+    background: blue;
+    color: #fff;
+}
+.firstForm {
+    background: #000;
+    color: #fff;
+    min-width: 21%;
+    min-height: 350px;
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+.formsContainer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.formSingleContainer {
+    margin-bottom: 10px;
+}
+.inputSize {
+    padding: 7px;
+    margin-left: 8px;
+}
+label {
+    display: inline-block;
+    width: 90px;
+}
+.button-Container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}
