@@ -10,6 +10,9 @@ export const SecondForm = () => {
     });
 
     const updateForm = (e) => {
+        if (e.target.value == "") {
+            console.log("value can't be empty");
+        }
         setFormDetails({
             ...formDetails,
             [e.target.name]: e.target.value,
@@ -27,7 +30,7 @@ export const SecondForm = () => {
             <div className="firstForm">
                 <div>
                     <h1 style={{ fontWeight: "600", fontSize: "40px" }}>
-                        Second- onBlur
+                        Second- onChange
                     </h1>
                 </div>
                 <form onSubmit={fetchApi}>
@@ -40,6 +43,9 @@ export const SecondForm = () => {
                             className="inputSize"
                             onChange={updateForm}
                         />
+                        <span style={{ color: "red" }}>
+                            <p>Error</p>
+                        </span>
                     </div>
                     <div className="formSingleContainer">
                         <label htmlFor="">Email</label>
@@ -50,6 +56,9 @@ export const SecondForm = () => {
                             className="inputSize"
                             onChange={updateForm}
                         />
+                        <span style={{ color: "red" }}>
+                            <p>Error</p>
+                        </span>
                     </div>
                     <div className="formSingleContainer">
                         <label htmlFor="">Gender:</label>
@@ -67,6 +76,9 @@ export const SecondForm = () => {
                             onChange={updateForm}
                         />
                         <label htmlFor="">Female</label>
+                        <span style={{ color: "red" }}>
+                            <p>Error</p>
+                        </span>
                     </div>
                     <div className="formSingleContainer">
                         <label htmlFor="">Country</label>
@@ -80,6 +92,9 @@ export const SecondForm = () => {
                             <option value="Qatar">Qatar</option>
                             <option value="Oman">Oman</option>
                         </select>
+                        <span style={{ color: "red" }}>
+                            <p>Error</p>
+                        </span>
                     </div>
                     <div className="formSingleContainer">
                         <label htmlFor="">Date of Birth</label>
@@ -89,6 +104,9 @@ export const SecondForm = () => {
                             onChange={updateForm}
                             className="inputSize"
                         />
+                        <span style={{ color: "red" }}>
+                            <p>Error</p>
+                        </span>
                     </div>
                     <div className="button-Container">
                         <button type="submit">Submit</button>

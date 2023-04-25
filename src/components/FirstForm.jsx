@@ -22,7 +22,7 @@ export const FirstForm = () => {
             <div className="firstForm">
                 <div>
                     <h1 style={{ fontWeight: "600", fontSize: "40px" }}>
-                        OnChange-form
+                        OnBlur-form
                     </h1>
                 </div>
                 <form onSubmit={(e) => fetchApi(e)}>
