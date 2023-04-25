@@ -15,9 +15,6 @@ export const SecondForm = () => {
         dobError: "",
         countryError: "",
     });
-    function isValidEmail(email) {
-        return /\S+@\S+\.\S+/.test(email);
-    }
 
     const updateForm = (e) => {
         if (e.target.value == "") {
