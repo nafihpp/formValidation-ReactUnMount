@@ -10,7 +10,7 @@
 
 3rd Component(Form) => Form Validation which does the validation onChange.
 
+![3rdform](https://user-images.githubusercontent.com/49452140/234314830-72cec9a3-4b70-4de6-b64b-1ba2f24a2706.jpg)
 
-![2nd](https://user-images.githubusercontent.com/49452140/234261562-676ff8ea-fa10-4dd9-904e-234412bdf52f.jpg)
 
 
